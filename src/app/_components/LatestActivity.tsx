@@ -6,6 +6,7 @@ interface Activity {
   id: string;
   type: string;
   documentType: string;
+  purpose?: string | null;
   status: string;
   createdAt: string;
   fullName: string;
@@ -46,8 +47,6 @@ export function LatestActivity() {
   };
 
   const getActivityText = (activity: Activity) => {
-    const date = new Date(activity.createdAt).toLocaleDateString();
-    
     if (activity.type === 'document') {
       return `Administrative document "${activity.documentType}" was uploaded`;
     } else {
@@ -101,6 +100,9 @@ export function LatestActivity() {
               {getActivityText(activity)}
               {getStatusBadge(activity.status)}
             </p>
+            {activity.purpose && (
+              <p className="text-xs text-gray-500 italic">{activity.purpose}</p>
+            )}
             <p className="text-xs text-gray-400">
               {new Date(activity.createdAt).toLocaleString()}
             </p>

@@ -135,9 +135,10 @@ export default function InquiryPage() {
           <div className="mb-4 rounded-lg bg-green-100 p-4 text-green-700">
             <p className="flex items-center gap-2">
               <span>✅</span>
-              Request submitted successfully!
+              Request submitted successfully! <br />
+              Your request is pending admin verification and will be processed within 1–2 business days.
             </p>
-          </div>
+            </div>
         )}
 
         {/* Form Container */}

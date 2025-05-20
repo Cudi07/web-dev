@@ -18,6 +18,7 @@ export async function GET() {
         id: fileUploads.id,
         type: fileUploads.requestType,
         documentType: fileUploads.documentType,
+        purpose: fileUploads.purpose,
         status: fileUploads.status,
         createdAt: fileUploads.createdAt,
         fullName: fileUploads.fullName,

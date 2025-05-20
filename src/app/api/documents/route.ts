@@ -19,7 +19,7 @@ export async function GET() {
       .from(fileUploads)
       .where(
         and(
-          eq(fileUploads.requestType, 'administrative'),
+          eq(fileUploads.requestType, 'document'),
           eq(fileUploads.status, 'approved')
         )
       )

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { useUploadThing } from "~/utils/uploadthing";
+import { toast } from "sonner";
 
 interface FileUploadProps {
   onUploadComplete?: () => void;
@@ -24,13 +25,26 @@ export function FileUpload({ onUploadComplete, metadata }: FileUploadProps) {
 
       try {
         setIsUploading(true);
-        const res = await startUpload(acceptedFiles);
+        const defaultMetadata = {
+          fullName: "",
+          address: "",
+          documentType: metadata?.documentType ?? "",
+          purpose: metadata?.purpose ?? "",
+          email: "",
+          phone: "",
+          requestType: metadata?.requestType ?? "document",
+          status: metadata?.status ?? "approved",
+        };
+        const res = await startUpload(acceptedFiles, defaultMetadata);
         if (res?.[0]) {
+          toast.success("Document uploaded successfully!");
           onUploadComplete?.();
+        } else {
+          toast.error("Upload failed. Please try again.");
         }
       } catch (error) {
         console.error("Upload failed:", error);
-        alert("Upload failed. Please try again.");
+        toast.error("Upload failed. Please try again.");
       } finally {
         setIsUploading(false);
       }

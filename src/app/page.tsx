@@ -21,9 +21,9 @@ export default function BarangayLandingPage() {
         <Image
           src="/SAN-AGUSTIN-removebg-preview.png"
           alt="Barangay Logo"
-          width={112}
-          height={112}
-          className="mb-4 rounded-full bg-white p-1"
+          width={200}
+          height={200}
+          className="mb-4 rounded-full bg-white p-1 transform transition-transform hover:scale-105"
         />
 
         {/* Heading */}

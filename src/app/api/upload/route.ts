@@ -103,7 +103,7 @@ export async function POST(req: Request) {
         address,
         documentType,
         purpose,
-        requestType: 'document',
+        requestType: 'request',
         email: email || null,
         phone: phone || null
       }).returning();

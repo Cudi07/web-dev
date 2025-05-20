@@ -20,7 +20,7 @@ const Footer = () => {
       {/* Main Footer */}
       <footer className="bg-gray-800 text-white">
         <div className="container mx-auto px-4 py-8">
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
             {/* Logo and Mission Section */}
             <div className="text-center md:text-left">
               <Image
@@ -28,9 +28,9 @@ const Footer = () => {
                 alt="Barangay Logo"
                 width={150}
                 height={150}
-                className="mx-auto rounded-full bg-white p-2 md:mx-0"
+                className="mx-auto justify-center rounded-full bg-white p-2"
               />
-              <p className="mt-4 text-sm">
+              <p className="mt-1 p-10 text-center text-sm">
                 God-centered, honest, united, and committed to delivering
                 inclusive, transparent, and compassionate public service.
               </p>
@@ -58,7 +58,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link
-                    href="/request"
+                    href="/inquiry"
                     className="text-yellow-400 hover:underline"
                   >
                     Request
@@ -75,9 +75,8 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Contact Information */}
             <div>
-              <h3 className="mb-4 text-xl font-semibold">Our location</h3>
+              <h1 className="mb-4 text-xl font-semibold">Contact Us</h1>
               <p className="mb-2">
                 📍 Barangay Hall, San Agustin,
                 <br />
@@ -88,6 +87,10 @@ const Footer = () => {
               <p className="mb-2">📞 (045) 123-4567</p>
               <p className="mb-2">✉️ brgy.sanagustin@gmail.com</p>
               <p className="mb-2">🕒 Monday to Friday, 8:00 AM – 5:00 PM</p>
+            </div>
+            <div>
+              <h3 className="mb-4 text-xl font-semibold">Our location</h3>
+
               <div className="mt-4">
                 <Image
                   src="/MAP.png"

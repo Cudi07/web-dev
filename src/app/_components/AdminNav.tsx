@@ -27,6 +27,12 @@ export default function AdminNav() {
           Requests
         </Link>
         <Link 
+          href="/admin/announcements" 
+          className="hover:text-yellow-400 transition-colors"
+        >
+          Announcements
+        </Link>
+        <Link 
           href="/documents" 
           className="hover:text-yellow-400 transition-colors"
         >

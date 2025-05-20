@@ -110,9 +110,9 @@ export default function DocumentsPage() {
                     <h3 className="font-medium text-gray-900">
                       {doc.documentType}
                     </h3>
-                    {doc.purpose && (
-                      <p className="text-sm text-gray-600">{doc.purpose}</p>
-                    )}
+                    <p className="text-sm text-gray-600">
+                      {doc.purpose ? doc.purpose : <span className="italic text-gray-400">No description</span>}
+                    </p>
                     <p className="text-xs text-gray-500">
                       Uploaded on {new Date(doc.createdAt).toLocaleDateString()}
                     </p>

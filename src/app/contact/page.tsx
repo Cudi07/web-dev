@@ -23,6 +23,7 @@ export default function ContactPage() {
         phone: (form.elements.namedItem('phone') as HTMLInputElement)?.value || null,
         message: (form.elements.namedItem('message') as HTMLTextAreaElement).value,
         address: 'Contact Form Submission', // Required field for the database
+        requestType: 'contact', // Ensure contact requests are labeled correctly
       };
 
       const response = await fetch('/api/contact', {

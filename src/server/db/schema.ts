@@ -59,3 +59,24 @@ export const fileUploads = createTable(
     requestTypeIdx: index("request_type_idx").on(table.requestType),
   })
 );
+
+export const announcements = createTable(
+  "announcement",
+  {
+    id: serial("id").primaryKey(),
+    title: varchar("title", { length: 256 }).notNull(),
+    description: text("description").notNull(),
+    date: timestamp("date", { withTimezone: true }).notNull(),
+    link: varchar("link", { length: 512 }),
+    createdAt: timestamp("created_at", { withTimezone: true })
+      .defaultNow()
+      .notNull(),
+    updatedAt: timestamp("updated_at", { withTimezone: true })
+      .defaultNow()
+      .notNull(),
+  },
+  (table) => ({
+    dateIdx: index("date_idx").on(table.date),
+    titleIdx: index("title_idx").on(table.title),
+  })
+);

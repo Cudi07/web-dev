@@ -1,11 +1,13 @@
 import Image from "next/image";
 import { SignIn } from "@clerk/nextjs";
+import Link from "next/link";
 
 export default function AdminPage() {
   return (
     <div className="relative min-h-screen w-full">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
+    
         <Image
           src="/bglandingpage.jpg"
           alt="Background"
@@ -13,12 +15,14 @@ export default function AdminPage() {
           className="object-cover brightness-50"
           priority
         />
+      
       </div>
 
       {/* Content */}
       <div className="relative flex min-h-screen flex-col items-center justify-center px-4">
         {/* Logo */}
         <div className="mb-8 transform transition-transform hover:scale-105">
+          <Link href="/">
           <Image
             src="/SAN-AGUSTIN-removebg-preview.png"
             alt="Barangay Logo"
@@ -26,15 +30,18 @@ export default function AdminPage() {
             height={150}
             className="rounded-full bg-white/90 p-2 shadow-lg"
           />
+          </Link>
         </div>
 
         {/* Welcome Text */}
+        <Link href="/">
         <h1 className="mb-2 text-center text-4xl font-bold text-white drop-shadow-lg">
           Welcome to Barangay San Agustin
         </h1>
         <p className="mb-12 text-center text-2xl text-white/90 drop-shadow">
           Betis, Guagua, Pampanga, 2003
         </p>
+        </Link>
 
         {/* Clerk Sign In Component */}
         <div className="flex w-full max-w-[400px] flex-col items-center overflow-hidden rounded-xl bg-yellow-400/95 shadow-2xl backdrop-blur-sm transition-all">

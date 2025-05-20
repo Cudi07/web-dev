@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { auth, currentUser } from "@clerk/nextjs/server";
 import { db } from "~/server/db";
 import { fileUploads } from "~/server/db/schema";
-import { desc, eq } from "drizzle-orm";
+import { desc, eq, or } from "drizzle-orm";
 
 export async function GET() {
   try {
@@ -16,9 +16,15 @@ export async function GET() {
       );
     }
 
-    // Fetch all requests ordered by most recent first
+    // Fetch all requests (document or contact) ordered by most recent first
     const requests = await db.select()
       .from(fileUploads)
+      .where(
+        or(
+          eq(fileUploads.requestType, 'request'),
+          eq(fileUploads.requestType, 'contact')
+        )
+      )
       .orderBy(desc(fileUploads.createdAt));
 
     // Transform dates to ISO strings for JSON serialization

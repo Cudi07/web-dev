@@ -2,7 +2,7 @@ import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import { db } from "~/server/db";
 import { fileUploads } from "~/server/db/schema";
-import { eq } from "drizzle-orm";
+import { eq, and } from "drizzle-orm";
 import AdminNav from "~/app/_components/AdminNav";
 import { QuickUploadForm } from "~/app/_components/QuickUploadForm";
 import { LatestActivity } from "~/app/_components/LatestActivity";
@@ -15,7 +15,13 @@ async function getDashboardStats() {
 
   const totalDocuments = await db
     .select()
-    .from(fileUploads);
+    .from(fileUploads)
+    .where(
+      and(
+        eq(fileUploads.requestType, "document"),
+        eq(fileUploads.status, "approved")
+      )
+    );
 
   return {
     pendingCount: pendingRequests.length,
@@ -25,7 +31,7 @@ async function getDashboardStats() {
 
 export default async function DashboardPage() {
   const { userId } = await auth();
-  
+
   if (!userId) {
     redirect("/sign-in");
   }
@@ -46,13 +52,17 @@ export default async function DashboardPage() {
             <h3 className="text-xl font-semibold text-gray-700">
               Pending Request
             </h3>
-            <p className="mt-4 text-3xl font-bold text-amber-600">{stats.pendingCount}</p>
+            <p className="mt-4 text-3xl font-bold text-amber-600">
+              {stats.pendingCount}
+            </p>
           </div>
           <div className="rounded-lg bg-gray-100 p-6 shadow-md">
             <h3 className="text-xl font-semibold text-gray-700">
               Uploaded Documents
             </h3>
-            <p className="mt-4 text-3xl font-bold text-amber-600">{stats.totalDocuments}</p>
+            <p className="mt-4 text-3xl font-bold text-amber-600">
+              {stats.totalDocuments}
+            </p>
           </div>
         </div>
       </section>
