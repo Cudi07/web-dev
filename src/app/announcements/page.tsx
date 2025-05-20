@@ -69,73 +69,90 @@ export default function NextPage() {
 
         {/* Main Content */}
         <div className="flex-1 px-4 pt-5">
-          
-          {/* Latest Announcements Title */}
-          <h2 className="mt-8 text-center text-4xl font-bold text-white [text-shadow:_2px_2px_4px_#000000]">
-            Latest Announcements!
-          </h2>
+          <div className="mx-auto mt-8 max-w-7xl rounded-3xl bg-white shadow-2xl border border-gray-200 p-12 relative overflow-hidden">
+            {/* Subtle background image with blur */}
+            <img
+              src="/bg-web.jpg"
+              alt="Background"
+              className="absolute inset-0 w-full h-full object-cover opacity-20 blur-sm pointer-events-none select-none"
+              aria-hidden="true"
+            />
+            {/* White-to-transparent gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-b from-white/80 to-white/60 pointer-events-none select-none" aria-hidden="true"></div>
+            {/* Latest Announcements Title */}
+            <div className="relative z-10 mb-12">
+              <h2 className="text-center text-5xl font-extrabold text-gray-800 tracking-tight">
+                Latest Announcements!
+              </h2>
+              <div className="mx-auto mt-3 mb-2 h-1 w-24 rounded-full bg-amber-400"></div>
+            </div>
 
-          {/* Announcements Cards Section */}
-          <div className="mx-auto mt-8 max-w-7xl py-8">
-            {loading ? (
-              <div className="text-center text-gray-600 py-8">Loading announcements...</div>
-            ) : error ? (
-              <div className="text-center text-red-600 py-8">{error}</div>
-            ) : announcements.length === 0 ? (
-              <div className="text-center text-gray-500 py-8">No announcements yet.</div>
-            ) : (
-              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                {announcements.map((a) => (
-                  <div key={a.id} className="overflow-hidden rounded-lg bg-gray-800 p-6 text-white shadow-lg">
-                    <div className="border-b border-gray-700 pb-4">
-                      <h2 className="text-xl font-bold">{new Date(a.date).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}</h2>
-                    </div>
-                    <div className="space-y-4 pt-4">
-                      <div>
-                        <h3 className="text-lg font-semibold">{a.title}</h3>
+            {/* Announcements Cards Section */}
+            <div className="mb-20">
+              {loading ? (
+                <div className="text-center text-gray-600 py-8">Loading announcements...</div>
+              ) : error ? (
+                <div className="text-center text-red-600 py-8">{error}</div>
+              ) : announcements.length === 0 ? (
+                <div className="text-center text-gray-500 py-8">No announcements yet.</div>
+              ) : (
+                <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+                  {announcements.map((a) => (
+                    <div
+                      key={a.id}
+                      className="overflow-hidden rounded-2xl bg-gray-50 p-8 text-gray-800 shadow transition-transform duration-200 hover:shadow-xl hover:-translate-y-1 border border-gray-100"
+                    >
+                      <div className="border-b border-gray-200 pb-4 mb-4">
+                        <h2 className="text-2xl font-bold text-gray-700">{new Date(a.date).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}</h2>
                       </div>
-                      <div>
-                        <p className="text-gray-300">{a.description}</p>
-                      </div>
-                      {a.link && (
-                        <div className="pt-2">
-                          <a href={a.link} className="text-blue-400 hover:text-blue-300" target="_blank" rel="noopener noreferrer">
-                            Read More
-                          </a>
+                      <div className="space-y-3 pt-2">
+                        <div>
+                          <h3 className="text-xl font-semibold text-amber-700">{a.title}</h3>
                         </div>
-                      )}
+                        <div>
+                          <p className="text-gray-600">{a.description}</p>
+                        </div>
+                        {a.link && (
+                          <div className="pt-2">
+                            <a href={a.link} className="text-blue-600 hover:text-blue-500 font-medium" target="_blank" rel="noopener noreferrer">
+                              Read More
+                            </a>
+                          </div>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Recent Projects Title */}
-          <h2 className="mt-12 text-center text-4xl font-bold text-white [text-shadow:_2px_2px_4px_#000000]">
-            Recent Projects
-          </h2>
-
-          {/* Projects Cards Section */}
-          <div className="mx-auto mt-8 max-w-7xl py-8">
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {/* First Project Card */}
-              <div className="overflow-hidden rounded-lg bg-gray-800 p-6 text-white shadow-lg">
-                <div className="border-b border-gray-700 pb-4">
-                  <h2 className="text-xl font-bold">Road Rehabilitation</h2>
+                  ))}
                 </div>
-                <div className="space-y-4 pt-4">
+              )}
+            </div>
+
+            {/* Recent Projects Title */}
+            <div className="relative z-10 mb-12 mt-16">
+              <h2 className="text-center text-5xl font-extrabold text-gray-800 tracking-tight">
+                Recent Projects
+              </h2>
+              <div className="mx-auto mt-3 mb-2 h-1 w-24 rounded-full bg-amber-400"></div>
+            </div>
+
+            {/* Projects Cards Section */}
+            <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+              {/* First Project Card */}
+              <div className="overflow-hidden rounded-2xl bg-gray-50 p-8 text-gray-800 shadow transition-transform duration-200 hover:shadow-xl hover:-translate-y-1 border border-gray-100">
+                <div className="border-b border-gray-200 pb-4 mb-4">
+                  <h2 className="text-2xl font-bold text-gray-700">Road Rehabilitation</h2>
+                </div>
+                <div className="space-y-3 pt-2">
                   <div>
-                    <h3 className="text-lg font-semibold">Phase 1 Complete</h3>
+                    <h3 className="text-xl font-semibold text-amber-700">Phase 1 Complete</h3>
                   </div>
                   <div>
-                    <p className="text-gray-300">
+                    <p className="text-gray-600">
                       Successfully completed the first phase of road repairs in
                       Zone 1.
                     </p>
                   </div>
                   <div className="pt-2">
-                    <button className="text-blue-400 hover:text-blue-300">
+                    <button className="text-blue-600 hover:text-blue-500 font-medium">
                       View Details
                     </button>
                   </div>
@@ -143,23 +160,21 @@ export default function NextPage() {
               </div>
 
               {/* Second Project Card */}
-              <div className="overflow-hidden rounded-lg bg-gray-800 p-6 text-white shadow-lg">
-                <div className="border-b border-gray-700 pb-4">
-                  <h2 className="text-xl font-bold">Street Lighting Project</h2>
+              <div className="overflow-hidden rounded-2xl bg-gray-50 p-8 text-gray-800 shadow transition-transform duration-200 hover:shadow-xl hover:-translate-y-1 border border-gray-100">
+                <div className="border-b border-gray-200 pb-4 mb-4">
+                  <h2 className="text-2xl font-bold text-gray-700">Street Lighting Project</h2>
                 </div>
-                <div className="space-y-4 pt-4">
+                <div className="space-y-3 pt-2">
                   <div>
-                    <h3 className="text-lg font-semibold">
-                      Installation Ongoing
-                    </h3>
+                    <h3 className="text-xl font-semibold text-amber-700">Installation Ongoing</h3>
                   </div>
                   <div>
-                    <p className="text-gray-300">
+                    <p className="text-gray-600">
                       LED lights installation in progress along main streets.
                     </p>
                   </div>
                   <div className="pt-2">
-                    <button className="text-blue-400 hover:text-blue-300">
+                    <button className="text-blue-600 hover:text-blue-500 font-medium">
                       View Details
                     </button>
                   </div>
@@ -167,24 +182,22 @@ export default function NextPage() {
               </div>
 
               {/* Third Project Card */}
-              <div className="overflow-hidden rounded-lg bg-gray-800 p-6 text-white shadow-lg">
-                <div className="border-b border-gray-700 pb-4">
-                  <h2 className="text-xl font-bold">Community Center</h2>
+              <div className="overflow-hidden rounded-2xl bg-gray-50 p-8 text-gray-800 shadow transition-transform duration-200 hover:shadow-xl hover:-translate-y-1 border border-gray-100">
+                <div className="border-b border-gray-200 pb-4 mb-4">
+                  <h2 className="text-2xl font-bold text-gray-700">Community Center</h2>
                 </div>
-                <div className="space-y-4 pt-4">
+                <div className="space-y-3 pt-2">
                   <div>
-                    <h3 className="text-lg font-semibold">
-                      Renovation Project
-                    </h3>
+                    <h3 className="text-xl font-semibold text-amber-700">Renovation Project</h3>
                   </div>
                   <div>
-                    <p className="text-gray-300">
+                    <p className="text-gray-600">
                       Upgrading facilities and expanding the community hall
                       space.
                     </p>
                   </div>
                   <div className="pt-2">
-                    <button className="text-blue-400 hover:text-blue-300">
+                    <button className="text-blue-600 hover:text-blue-500 font-medium">
                       View Details
                     </button>
                   </div>
