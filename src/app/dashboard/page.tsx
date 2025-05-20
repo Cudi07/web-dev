@@ -39,56 +39,56 @@ export default async function DashboardPage() {
   const stats = await getDashboardStats();
 
   return (
-    <main className="mx-6 mt-30 md:mx-20 lg:mx-40">
-      <AdminNav />
+    <div className="min-h-screen flex flex-col">
+      <main className="flex-grow mx-6 mt-30 md:mx-20 lg:mx-40">
+        <AdminNav />
 
-      {/* Main Dashboard Section */}
-      <section>
-        <h2 className="mb-8 text-center text-3xl font-bold text-amber-600">
-          Dashboard Overview
-        </h2>
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
-          <div className="rounded-lg bg-gray-100 p-6 shadow-md">
-            <h3 className="text-xl font-semibold text-gray-700">
-              Pending Request
-            </h3>
-            <p className="mt-4 text-3xl font-bold text-amber-600">
-              {stats.pendingCount}
-            </p>
+        {/* Main Dashboard Section */}
+        <section>
+          <h2 className="mb-8 text-center text-3xl font-bold text-amber-600">
+            Dashboard Overview
+          </h2>
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
+            <div className="rounded-lg bg-gray-100 p-6 shadow-md">
+              <h3 className="text-xl font-semibold text-gray-700">
+                Pending Request
+              </h3>
+              <p className="mt-4 text-3xl font-bold text-amber-600">
+                {stats.pendingCount}
+              </p>
+            </div>
+            <div className="rounded-lg bg-gray-100 p-6 shadow-md">
+              <h3 className="text-xl font-semibold text-gray-700">
+                Uploaded Documents
+              </h3>
+              <p className="mt-4 text-3xl font-bold text-amber-600">
+                {stats.totalDocuments}
+              </p>
+            </div>
           </div>
-          <div className="rounded-lg bg-gray-100 p-6 shadow-md">
-            <h3 className="text-xl font-semibold text-gray-700">
-              Uploaded Documents
-            </h3>
-            <p className="mt-4 text-3xl font-bold text-amber-600">
-              {stats.totalDocuments}
-            </p>
+        </section>
+
+        {/* Latest Activity Section */}
+        <section className="mt-16 rounded-lg bg-gray-100 p-6 shadow-md">
+          <h2 className="mb-4 text-xl font-semibold text-gray-800">
+            🔔 Latest Activity
+          </h2>
+          <LatestActivity />
+        </section>
+
+        {/* Quick Upload Section */}
+        <section className="mt-16">
+          <h2 className="mb-6 text-center text-2xl font-bold text-amber-600">
+            Quick Upload
+          </h2>
+          <div className="mx-auto w-full max-w-xl rounded-lg bg-gray-100 p-6 shadow-md">
+            <QuickUploadForm />
           </div>
-        </div>
-      </section>
-
-      {/* Latest Activity Section */}
-      <section className="mt-16 rounded-lg bg-gray-100 p-6 shadow-md">
-        <h2 className="mb-4 text-xl font-semibold text-gray-800">
-          🔔 Latest Activity
-        </h2>
-        <LatestActivity />
-      </section>
-
-      {/* Quick Upload Section */}
-      <section className="mt-16">
-        <h2 className="mb-6 text-center text-2xl font-bold text-amber-600">
-          Quick Upload
-        </h2>
-        <div className="mx-auto w-full max-w-xl rounded-lg bg-gray-100 p-6 shadow-md">
-          <QuickUploadForm />
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="mt-20 w-full bg-gray-900 p-6 text-center text-sm text-white">
+        </section>
+      </main>
+      <footer className="w-full bg-gray-900 p-6 text-center text-sm text-white mt-auto">
         © 2025 Barangay San Agustin - Admin Portal. All rights reserved.
       </footer>
-    </main>
+    </div>
   );
 }
