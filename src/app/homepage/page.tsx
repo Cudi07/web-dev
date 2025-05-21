@@ -372,7 +372,6 @@ export default function HomePage() {
               <li>Certificate of Residency</li>
               <li>Business Permit Recommendation</li>
               <li>Certificate of Indigency</li>
-              <li>Barangay ID</li>
             </ul>
           </div>
         )}

@@ -139,21 +139,22 @@ export default function NextPage() {
               {/* First Project Card */}
               <div className="overflow-hidden rounded-2xl bg-gray-50 p-8 text-gray-800 shadow transition-transform duration-200 hover:shadow-xl hover:-translate-y-1 border border-gray-100">
                 <div className="border-b border-gray-200 pb-4 mb-4">
-                  <h2 className="text-2xl font-bold text-gray-700">Road Rehabilitation</h2>
+                  <h2 className="text-2xl font-bold text-gray-700">Job Fair</h2>
                 </div>
                 <div className="space-y-3 pt-2">
                   <div>
-                    <h3 className="text-xl font-semibold text-amber-700">Phase 1 Complete</h3>
+                    <h3 className="text-xl font-semibold text-amber-700">Complete</h3>
                   </div>
                   <div>
                     <p className="text-gray-600">
-                      Successfully completed the first phase of road repairs in
-                      Zone 1.
+                      Successfully hosted a job fair for the residents of Barangay San Agustin held at Guagua National Colleges.
                     </p>
                   </div>
                   <div className="pt-2">
                     <button className="text-blue-600 hover:text-blue-500 font-medium">
+                      <a href="https://www.facebook.com/share/p/1BXbbCiG9z/">
                       View Details
+                      </a>
                     </button>
                   </div>
                 </div>
@@ -162,20 +163,22 @@ export default function NextPage() {
               {/* Second Project Card */}
               <div className="overflow-hidden rounded-2xl bg-gray-50 p-8 text-gray-800 shadow transition-transform duration-200 hover:shadow-xl hover:-translate-y-1 border border-gray-100">
                 <div className="border-b border-gray-200 pb-4 mb-4">
-                  <h2 className="text-2xl font-bold text-gray-700">Street Lighting Project</h2>
+                  <h2 className="text-2xl font-bold text-gray-700">San Agustin - Fiesta Celebration</h2>
                 </div>
                 <div className="space-y-3 pt-2">
                   <div>
-                    <h3 className="text-xl font-semibold text-amber-700">Installation Ongoing</h3>
+                    <h3 className="text-xl font-semibold text-amber-700">Completed</h3>
                   </div>
                   <div>
                     <p className="text-gray-600">
-                      LED lights installation in progress along main streets.
+                      Details for the schedule of Fiesta Celebration held on May 08, 2025 - May 11, 2025.
                     </p>
                   </div>
                   <div className="pt-2">
                     <button className="text-blue-600 hover:text-blue-500 font-medium">
+                      <a href="https://www.facebook.com/share/p/1ExxH6dncE/">
                       View Details
+                      </a>
                     </button>
                   </div>
                 </div>
@@ -184,21 +187,22 @@ export default function NextPage() {
               {/* Third Project Card */}
               <div className="overflow-hidden rounded-2xl bg-gray-50 p-8 text-gray-800 shadow transition-transform duration-200 hover:shadow-xl hover:-translate-y-1 border border-gray-100">
                 <div className="border-b border-gray-200 pb-4 mb-4">
-                  <h2 className="text-2xl font-bold text-gray-700">Community Center</h2>
+                  <h2 className="text-2xl font-bold text-gray-700">Handing out of New Mobile Vehicles</h2>
                 </div>
                 <div className="space-y-3 pt-2">
                   <div>
-                    <h3 className="text-xl font-semibold text-amber-700">Renovation Project</h3>
+                    <h3 className="text-xl font-semibold text-amber-700">Completed</h3>
                   </div>
                   <div>
                     <p className="text-gray-600">
-                      Upgrading facilities and expanding the community hall
-                      space.
+                      Mobile vehicles were handed out to the rest of barangay of Guagua Pampanga.
                     </p>
                   </div>
                   <div className="pt-2">
                     <button className="text-blue-600 hover:text-blue-500 font-medium">
+                      <a href="https://www.facebook.com/share/p/16GVFj11FP/">
                       View Details
+                      </a>
                     </button>
                   </div>
                 </div>
